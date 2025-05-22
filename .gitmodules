@@ -1,0 +1,3 @@
+[submodule "components/me/local/components/me/carfleet"]
+	path = components/me/local/components/me/carfleet
+	url = git@github.com:vlipatov365/me.carfleet.git
