@@ -295,6 +295,13 @@ class MeCarFleet extends CBitrixComponent
      */
     private function addReservation(): array
     {
+        if (!$this->timeFrom || !$this->timeTo) {
+            return [
+                'SUCCESS' => false,
+                'MESSAGE' => Loc::getMessage('ME_CARFLEET_RESERVATION_NO_DATES')
+            ];
+        }
+
         $carId = $this->request->get('CAR_ID');
         if (!$carId) {
             return [
@@ -329,8 +336,6 @@ class MeCarFleet extends CBitrixComponent
     }
 
     /**
-     * Правильнее добавить модуль, вынести метод в хелперы и реализовать событие на обновление/добавление инфоблока.
-     *
      * @return string
      * @throws ArgumentException
      * @throws ObjectPropertyException
